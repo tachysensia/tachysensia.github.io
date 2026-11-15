@@ -66,8 +66,6 @@
   .post .body .note { margin-top: 3em; padding-top: 1.2em; border-top: 1px solid var(--faint); color: var(--dim); font-style: italic; }
   .post .body .fn:first-of-type { margin-top: 0; }
   .post .body .fn { padding-left: 2em; text-indent: -2em; }
-  .post .body p, .post .body .gap { opacity: 0; animation: ink .5s ease forwards; }
-  @keyframes ink { from { opacity: 0; filter: blur(1.5px); } to { opacity: 1; filter: none; } }
   .end { margin-top: 6vh; color: var(--dim); }
   .nav { margin-top: 8vh; display: flex; justify-content: space-between; font-size: 14px; color: var(--dim); }
   .nav a:hover { color: var(--ink); }
@@ -112,6 +110,22 @@
            ! ile başlayan satır = slogan kutusu, (1) ile başlayan satır = dipnot
 ================================================================= */
 const YAZILAR = [
+  {
+    id: "kapitone",
+    baslik: "kapitone",
+    tarih: "15.11.26",
+    metin: `
+kapitone oluyorum. kollarımdan, sırtımdan içeri dikiliyorum. üstüm lekesiz.
+
+bazı hallerde dikişler sökülüyor. deri kayıyor, ben benden kayıyorum. bir süre özgürlük sanıyorum bunu.
+
+ama her dikişin altından bir kat deri daha çıkıyor. en altta iskelet bekliyorum. sünger çıkıyor.
+
+yalnızca dikiş patlarken gerçeğim.
+
+çözülmeye devam edeceğim.
+`
+  },
   {
     id: "terfi",
     baslik: "terfi",
