@@ -45,8 +45,7 @@
   .sub { margin-top: 6px; color: var(--dim); font-size: 14px; }
 
   /* liste */
-  .item { display: grid; grid-template-columns: 7.5em 1fr; gap: 0 1.2em; padding: 14px 0; border-top: 1px solid var(--faint); }
-  .item:last-child { border-bottom: 1px solid var(--faint); }
+  .item { display: grid; grid-template-columns: 7.5em 1fr; gap: 0 1.2em; padding: 10px 0; }
   .item .d { color: var(--dim); font-size: 14px; padding-top: 2px; }
   .item .t { position: relative; }
   .item:hover .t { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
@@ -154,8 +153,7 @@ function liste() {
   $("#view").innerHTML = YAZILAR.map(y =>
     `<a class="item" href="#/${y.id}" data-go="${y.id}"><span class="d">${esc(y.tarih || "")}</span><span class="t">${esc(y.baslik)}</span></a>`
   ).join("");
-  $("#count").textContent = YAZILAR.length > 1 ? `${YAZILAR.length} yazı` : "";
-  $("#rnd").style.display = YAZILAR.length > 1 ? "" : "none";
+  $("#count").textContent = `${YAZILAR.length} yazı`;
   document.title = "tachysensia";
 }
 
