@@ -45,7 +45,8 @@
   .sub { margin-top: 6px; color: var(--dim); font-size: 14px; }
 
   /* liste */
-  .item { display: grid; grid-template-columns: 7.5em 1fr; gap: 0 1.2em; padding: 10px 0; }
+  .item { display: grid; grid-template-columns: 7.5em 1fr; gap: 0 1.2em; padding: 14px 0; border-top: 1px solid var(--faint); }
+  .item:last-child { border-bottom: 1px solid var(--faint); }
   .item .d { color: var(--dim); font-size: 14px; padding-top: 2px; }
   .item .t { position: relative; }
   .item:hover .t { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
@@ -59,6 +60,13 @@
   .post .body .gap { height: 1.4em; }
   .post .body .sec { color: var(--dim); margin: 2.2em 0 .6em; letter-spacing: .06em; }
   .post .body .sec:first-child { margin-top: 0; }
+  .post .body .slogan { font-weight: 700; letter-spacing: .04em; border: 1px solid var(--ink); padding: .5em .8em; margin: 0 0 2em; display: inline-block; transform: rotate(-.6deg); }
+  .post .body p + p:not(.sec):not(.fn) { margin-top: .15em; }
+  .post .body .fn { font-size: 14px; color: var(--dim); }
+  .post .body .ref { margin-top: 3.5em; font-size: 14px; padding-left: 2.2em; text-indent: -2.2em; word-break: break-word; }
+  .post .body .note { margin-top: 3em; padding-top: 1.2em; border-top: 1px solid var(--faint); color: var(--dim); font-style: italic; }
+  .post .body .fn:first-of-type { margin-top: 0; }
+  .post .body .fn { padding-left: 2em; text-indent: -2em; }
   .post .body p, .post .body .gap { opacity: 0; animation: ink .5s ease forwards; }
   @keyframes ink { from { opacity: 0; filter: blur(1.5px); } to { opacity: 1; filter: none; } }
   .end { margin-top: 6vh; color: var(--dim); }
@@ -101,292 +109,18 @@
    YAZILAR — en yenisini en üste ekle
    id: adres çubuğunda görünür (türkçe karakter ve boşluk kullanma)
    metin: `` arasına yaz. her satır ayrı satır, boş satır = nefes
-           § ile başlayan satır = bölüm başlığı
+           § ile başlayan satır = bölüm başlığı, _kelime_ = italik
+           ! ile başlayan satır = slogan kutusu, (1) ile başlayan satır = dipnot
 ================================================================= */
 const YAZILAR = [
   {
-    id: "kusursuz-adam",
-    baslik: "kusursuz adam",
+    id: "terfi",
+    baslik: "terfi",
     tarih: "15.11.26",
     metin: `
-§ i. kusursuz adam
+bir akademisyenin gözlerinden görüyordum. bir nöbeti sırasında yerde gördüğü farenin kulağını mutfak bıçağıyla koparıp inceledi(m). oyuncak sanmıştı(m). gerçek bir kulaktı ama hâlâ plastik gibi duruyordu. parçalarına bakıp latince bir isim söyledi(m). sonra fotomontaj gibi, gözlerinden senelerin geçtiğini gördüm. işinde terfi aldıkça göğe varan bir gökdelenin katlarında yükseldi(m). her bir karede camdan dışarı bakıp ne kadar yüksekten atlarsam o kadar kesin öleceğimin hesabını yapıyordum. o kişi ben miydim, emin değilim.
 
-kusursuz adam sabah yedide kalkar
-çünkü başarılı insanlar sabah yedide kalkar
-bunu bir podcastte duymuştur
-podcasti de başarılı bir adam yapıyordur
-
-kusursuz adamın her şeyi yerli yerindedir
-bir annesi vardır, anne gibi davranır
-bir sevgilisi vardır, sevgili gibi davranır
-bir de düşmanı vardır
-düşmanı olmayan adam adamdan sayılmaz
-
-kusursuz adam erkektir
-bunu her sabah biraz tekrar eder
-el sıkışırken, sesini kalınlaştırırken, ağlamazken
-unutursa diye
-
-kusursuz adam piyasaya inanır
-piyasa her şeyi çözer
-çözemediğini zaten problem saymaz
-
-kusursuz adam tanrıya da inanır
-cennet onun için bir emeklilik planıdır
-uzun vadeli yatırım, düşük risk
-
-kusursuz adamın ideolojisi yoktur
-öyle der
-en sağlam ideoloji budur
-
-kusursuz adam şüphe etmez
-şüphe verimliliği düşürür
-
-§ ii. sunuş
-
-şimdi biraz ciddi olayım
-kusursuz adamın problemi kötü olması değil
-her şeyi etiketiyle yaşaması
-
-anne arkadaş düşman sevgili
-bu kelimeler iletişimi hızlandırıyor
-sevgilim dediğinde karşındaki her şeyi anlıyor
-ama bir şey de kayboluyor
-o insanın kendisi
-
-lacan'a göre simge şeyin ölümüdür
-kelime gelince şeyin kendisi çekiliyor
-
-sevgili dediğin an bir paket geliyor
-kıskanmak gerekiyor, cevap vermek gerekiyor, yıldönümü gerekiyor
-ailen tanısın, arkadaşların onaylasın
-toplumun sevgiliden beklediği her şey
-ve bizim farkında olmadan içimize aldığımız her şey
-bu paketin bir iktidarı var
-ilişki artık iki insan arasında değil
-iki insan ve bir kelime arasında
-
-etiketten önce sadece biriyle konuşuyordun
-etiketten sonra sevgilinle konuşuyorsun
-aynı insan, başka bir dinamik
-sentetik
-
-§ iii. eleştiri
-
-ama burada bir tuzak var
-etiketlere karşı olmak da bir etiket
-etiketsiz ilişki diyoruz
-ona bile isim koyduk, situationship
-sentetiklikten kaçmak da sentetik
-
-belki çözüm etiketsiz yaşamak değil
-merkezsiz yaşamak
-ağaç gibi değil çimen gibi
-deleuze ve guattari buna rizom diyor
-merkezi yok, her noktadan her noktaya gidilebiliyor
-biri bugün arkadaşın olur yarın neredeyse annen
-bir düşman bir gün seni en iyi anlayan olur
-
-bu merkezsizliği her şeyde hissediyorum
-dinde, cinsiyette, parada, sevgide
-hiçbirinin merkezi yok
-hepsi merkezi varmış gibi davranıyor
-
-kusursuz adam bunu okusa
-bu çocuk kafayı yemiş der
-haklı da olabilir
-
-bu akşam birine kanka dedim
-kelime hızlıydı
-yetmedi ama
-`
-  },
-  {
-    id: "kisiye-ozel-fiyat",
-    baslik: "kişiye özel fiyat",
-    tarih: "15.11.26",
-    metin: `
-mikroekonomide tekel konusundayız
-tam fiyat ayrımcılığı diye bir şey var
-herkesten ödeyebileceği maksimumu alıyorsun
-her insana ayrı bir fiyat
-ve bunu sınavda hesaplıyoruz
-
-grafikte bir üçgen var tüketici artığı diye
-satın aldıktan sonra insanın elinde kalan küçük sevinç gibi bir şey
-tam ayrımcılıkta o üçgen sıfırlanıyor
-hepsi firmaya geçiyor
-hoca buna verimli diyor
-teknik olarak haklı da
-
-bilet siteleri de artık bunu yapıyor
-dönmek için saat başı bakıyorsan fiyat da senin için yükseliyor
-algoritma çaresizliği ölçüyor
-çaresizlik artık bir veri
-
-fisher'ın kitabında o meşhur cümle var
-kapitalizmin sonunu hayal etmek dünyanın sonunu hayal etmekten daha zor
-burada daha da zor bence
-çünkü biz kapitalizmi hayal etmiyoruz
-türevini alıyoruz
-
-bir ara grupta biri
-çalışmak istemiyorum ama param olsun istiyorum dedi
-zengin aile bunun çözümü yazdım
-şaka diye yazdım
-okulun yarısı için şaka değil
-
-sonra sınava girdim
-üçgeni doğru taradım
-`
-  },
-  {
-    id: "yemekhane-study-common",
-    baslik: "yemekhane study common",
-    tarih: "15.11.26",
-    metin: `
-günüm üç kelime
-yemekhane study common
-bazen sırası değişiyor
-bir de ders var ama ders bu üçünün arasında bir bekleme salonu
-
-yemekhane kartımda para yok
-yükleyince kaç saatte yatıyor diye gruba soruyorum
-aynı masada biri kartına hiç bakmamış
-bakmasına gerek yok
-para onun için bir bilgi değil hava durumu
-
-geçen hafta modeli kimse anlamayınca prof
-bizim zamanımızda bunu doktoranın ikinci yılında görürdük dedi
-avrupa'da bunu lisansta anlatan başka yer yok, normal
-iltifat mı hakaret mi anlayamadık
-ikisi aynı şey galiba
-seçilmiş olmanın bedeli aşağılanmayı hak etmek
-
-common'da sigara içerken toplanan bir ekip var
-orası okulun bilinçdışı bence
-derste söylenemeyen her şey orada söyleniyor
-sonra herkes içeri girip slaytlara dönüyor
-
-bir ara gruba sömürü makineleriyiz yazmıştım
-şaka değildi
-gülüp yemekhaneye gittik
-
-žižek'in sinik formülü var
-ne yaptıklarını çok iyi biliyorlar ama yine de yapıyorlar
-ideoloji artık bilmemek değil
-bilip devam etmek
-
-neyse yarın 8.30 dersim var
-yemekhane açılmadan
-`
-  },
-  {
-    id: "form",
-    baslik: "form",
-    tarih: "15.11.26",
-    metin: `
-bir gün gruba şaka diye bir tablo attım
-isim | bölüm | sınıf | cinsiyet | yurt | ot | burs | sevgili | ders
-herkes güldü
-sonra düşündüm
-burada bir insanı tanımak gerçekten bundan ibaret
-
-ilk soru hep bölüm
-ikinci soru staj
-üçüncü soru yok çünkü cevap belli
-
-butler cinsiyetin bir öz olmadığını söylüyor
-bir tekrar olduğunu
-bir şeyi yeterince tekrar edersen doğalmış gibi görünür
-okulda bu herkes için geçerli
-finans bir bölüm değil bir yürüme biçimi
-bir el sıkışma, bir "actually"
-ilk dönem kimse böyle değildi
-ikinci dönem herkes böyleydi
-
-kimse sana böyle ol demedi
-mesele de bu zaten
-iktidar yasaklamıyor üretiyor
-
-tabloda en çok ot sütunu güldürdü
-ama bence en dürüst sütun oydu
-seçilmiş gibi duran tek sütun o
-diğerleri seçildiğini sanıyor
-
-bende de bütün sütunlar dolu bu arada
-özcülüğe karşıyım ama formu doldurdum
-herkes gibi
-`
-  },
-  {
-    id: "beklenen-yas",
-    baslik: "beklenen yas",
-    tarih: "14.11.26",
-    metin: `
-uzaktaki bir yakının ölümünü düşünmenin bir konforu var
-bunu söyleyince insanlar yüz buruşturuyor ama bir dakika
-
-yabancı'da bir cümle var
-sağlıklı bütün insanlar sevdiklerinin ölümünü az çok arzu etmiştir
-meursault aslında adamı öldürdüğü için yargılanmıyor
-annesinin cenazesinde ağlamadığı için yargılanıyor
-toplum cinayeti affeder yasın yanlış tutulmasını affetmez
-
-freud buna ambivalans diyor
-aynı nesneye hem sevgi hem düşmanlık
-yasın içindeki suçluluk da buradan geliyor
-"keşke" değil "acaba ben mi istedim"
-
-beklenen yas başka bir şey ama
-ortada ölüm yok
-sen yasın provasını yapıyorsun
-uzaklık zaten küçük bir ölüm
-her telefon bir hayaletle konuşmak gibi
-
-asıl konfor şu bence
-ilişkiyi bitirmeden kapatabiliyorsun
-tartışmadan hesaplaşmadan
-hiç tartışmamış olmanın uzaklığına ölüm bir anlam veriyor
-yoksa sadece aranmayan biriyiz
-
-yine simge gerçekten daha güçlü
-ölüm değil ölüm fikri iş görüyor
-
-neyse
-annemi arayayım bari
-`
-  },
-  {
-    id: "noe-ve-kontrol",
-    baslik: "noé ve kontrol",
-    tarih: "14.11.26",
-    metin: `
-climax'i sonunda izledim
-irreversible'dan sonra bir tık çekinerek açtım açıkçası
-
-dansçılar bu filmde
-yani işi bedenini kontrol etmek olan insanlar
-sangria'ya bir şey karışıyor ve ilk giden şey zihin oluyor
-beden hâlâ dans ediyor ama artık onu kimse sürmüyor
-ironi bence tam orada
-
-irreversible'da da aynı şey var aslında ama ters yönden
-alex metroda kadınların erkeğin kendi zevkini öne koymasını erotik bulabileceğini söylüyor
-bu bir fantazi, arzuyu taşıyan bir çerçeve
-sonra (film geriye aktığı için aslında önce) o çerçeve paramparça oluyor
-geriye konuşulamayan bir şey kalıyor
-lacan buna gerçek diyor
-evet her şeye lacancı bakmaya başladım galiba farkındayım
-
-ikisinde de noé kurtuluş göstermiyor
-etkiyi gösteriyor ama etkileneni pek değil
-bu bir eksiklik mi bilerek mi emin değilim
-belki izleyeni de o dansçılar gibi bırakmak istiyor
-beden orada ama kontrol sende değil
-
-sonra balkona çıkıp sigara içtim
-kontrol bende miydi onu da bilmiyorum
+& Anonim. (2026). [Rüya kaydı]. Yayımlanmamış ham veri.
 `
   },
 ];
@@ -420,7 +154,8 @@ function liste() {
   $("#view").innerHTML = YAZILAR.map(y =>
     `<a class="item" href="#/${y.id}" data-go="${y.id}"><span class="d">${esc(y.tarih || "")}</span><span class="t">${esc(y.baslik)}</span></a>`
   ).join("");
-  $("#count").textContent = `${YAZILAR.length} yazı`;
+  $("#count").textContent = YAZILAR.length > 1 ? `${YAZILAR.length} yazı` : "";
+  $("#rnd").style.display = YAZILAR.length > 1 ? "" : "none";
   document.title = "tachysensia";
 }
 
@@ -431,8 +166,13 @@ function yazi(id) {
   const satirlar = y.metin.replace(/^\n+|\n+$/g, "").split("\n");
   const body = satirlar.map((s, k) => {
     const gecikme = `style="animation-delay:${900 + k * 70}ms"`;
+    if (s.startsWith("! ")) return `<p class="slogan" ${gecikme}>${esc(s.slice(2))}</p>`;
+    if (s.startsWith("& ")) return `<p class="ref" ${gecikme}>${esc(s.slice(2)).replace(/_([^_]+)_/g, "<em>$1</em>")}</p>`;
+    if (s.startsWith("~ ")) return `<p class="note" ${gecikme}>${esc(s.slice(2))}</p>`;
+    if (s.startsWith("— ")) return `<p class="fn" ${gecikme}>${esc(s)}</p>`;
+    if (/^\(\d+\)/.test(s)) return `<p class="fn" ${gecikme}>${esc(s)}</p>`;
     if (s.startsWith("§ ")) return `<p class="sec" ${gecikme}>${esc(s.slice(2))}</p>`;
-    return s.trim() ? `<p ${gecikme}>${esc(s)}</p>` : `<div class="gap" ${gecikme}></div>`;
+    return s.trim() ? `<p ${gecikme}>${esc(s).replace(/_([^_]+)_/g, "<em>$1</em>")}</p>` : `<div class="gap" ${gecikme}></div>`;
   }).join("");
   const onceki = YAZILAR[i + 1], sonraki = YAZILAR[i - 1];
   $("#view").innerHTML = `<article class="post">
